@@ -15,20 +15,20 @@ const Form = ({ setUsersdata }) => {
     let { name, value } = e.target;
     setFormdata({ ...formdata, [name]: value });
 
-    console.log(e);
+    // console.log(e);
   };
-  console.log(formdata);
+  // console.log(formdata);
 
   const submitHandler = (e) => {
     e.preventDefault();
     setUsersdata((prev) => [...prev, formdata]);
 
-    // setFormdata({
-    //   name: "",
-    //   email: "",
-    //   contact: "",
-    //   image: "",
-    // });
+    setFormdata({
+      name: "",
+      email: "",
+      contact: "",
+      image: "",
+    });
   };
 
   return (
