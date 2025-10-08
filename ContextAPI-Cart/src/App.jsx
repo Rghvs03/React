@@ -169,22 +169,24 @@ const App = () => {
     },
   ]);
 
-
-  let {toggle} = useContext(MyStore);
-
+  let { toggle } = useContext(MyStore);
 
   return (
     <div className="flex flex-col overflow-hidden">
       <Navbar />
       <div className="w-screen flex flex-wrap gap-5 p-5 m-6">
         {products.map((product) => {
-          return <ProductCard product={product} key={product.id} products = {products} />;
+          return (
+            <ProductCard
+              product={product}
+              key={product.id}
+              products={products}
+            />
+          );
         })}
       </div>
 
-      {toggle ? <Modal/> : null}
-      
-
+      {toggle ? <Modal /> : null}
     </div>
   );
 };
