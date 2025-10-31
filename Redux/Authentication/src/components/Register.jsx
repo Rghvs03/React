@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { addUser } from "../features/AuthSlice";
 
 const Register = ({ setToggle, usersData, setUsersdata }) => {
   let {
@@ -10,11 +12,14 @@ const Register = ({ setToggle, usersData, setUsersdata }) => {
     reset,
   } = useForm();
 
-  const handleRegisterForm = (data) => {
-    let updatedData = [...usersData, data];
+  const dispatch = useDispatch();
 
-    setUsersdata(updatedData);
-    localStorage.setItem( "usersdata" , JSON.stringify(updatedData));
+  const handleRegisterForm = (data) => {
+    // let updatedData = [...usersData, data];
+
+    // setUsersdata(updatedData);
+    // localStorage.setItem( "usersdata" , JSON.stringify(updatedData));
+    dispatch(addUser(data));
     alert("User Registerd Successfully");
     reset();
   };

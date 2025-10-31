@@ -1,4 +1,3 @@
-// Only number-related code
 import { createSlice } from "@reduxjs/toolkit";
 
 const counterSlice = createSlice({
