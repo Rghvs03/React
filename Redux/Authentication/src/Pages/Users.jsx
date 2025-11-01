@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import { fetchusersdata } from "../Apis/UsersApi";
+import { useQuery } from "@tanstack/react-query";
 
 const Users = () => {
-  return (
-    <div>Users</div>
-  )
-}
+  const query = useQuery({
+    queryKey: ["users"],
+    queryFn: fetchusersdata,
+  });
+  return <div>Users</div>;
+};
 
-export default Users
+export default Users;

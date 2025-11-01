@@ -20,7 +20,14 @@ const Register = ({ setToggle, usersData, setUsersdata }) => {
     // setUsersdata(updatedData);
     // localStorage.setItem( "usersdata" , JSON.stringify(updatedData));
     dispatch(addUser(data));
+    localStorage.setItem("users",JSON.stringify(data));
+    // let existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+    // existingUsers.push(data);
+    // localStorage.setItem("users", JSON.stringify(existingUsers));
     alert("User Registerd Successfully");
+    setToggle((prev)=>!prev)
+
     reset();
   };
 

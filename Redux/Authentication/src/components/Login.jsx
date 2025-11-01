@@ -11,19 +11,28 @@ const Login = ({ setToggle, usersData, setExistingUser }) => {
     reset,
   } = useForm();
 
+  const navigate = useNavigate();
   const handleLoginForm = (data) => {
-    let existingUser = usersData.filter(
-      (elem) => elem.email === data.email && elem.password === data.password
-    );
+    // let existingUser = usersData.filter(
+    //   (elem) => elem.email === data.email && elem.password === data.password
+    // );
 
-    if (existingUser.length === 0) {
-      return alert("User not found");
+    // if (existingUser.length === 0) {
+    //   return alert("User not found");
+    // }
+
+    // setExistingUser((prev) => [...prev, existingUser[0]]);
+
+    // alert("User loggedin");
+    const { email, password } = JSON.parse(localStorage.getItem("users"));
+
+    if (email === data.email && password === data.password) {
+      navigate("/homeLayout");
+
+      alert("User Logged in Successfully");
+    } else {
+      alert("User Not Found");
     }
-
-    setExistingUser((prev) => [...prev, existingUser[0]]);
-
-    alert("User loggedin");
-
     reset();
   };
 
