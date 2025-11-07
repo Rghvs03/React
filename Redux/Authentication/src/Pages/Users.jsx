@@ -1,12 +1,13 @@
 import React from "react";
-import { fetchusersdata } from "../Apis/UsersApi";
-import { useQuery } from "@tanstack/react-query";
+import { getUsersDatafromHook } from "../hooks/getUsersDatafromHook";
 
 const Users = () => {
-  const query = useQuery({
-    queryKey: ["users"],
-    queryFn: fetchusersdata,
-  });
+  // eslint-disable-next-line no-unused-vars
+  let { data, isPending, error } = getUsersDatafromHook();
+  if (data) {
+    console.log(data);
+  }
+
   return <div>Users</div>;
 };
 
