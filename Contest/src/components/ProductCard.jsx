@@ -47,7 +47,6 @@ const ProductCard = ({ id, image, price, rating, title }) => {
         <div className="flex gap-3 mt-3">
           <button
             className="flex-1 py-2 px-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition active:scale-95"
-            // onClick={}
           >
             Buy Now
           </button>
